@@ -24,13 +24,12 @@ conn.commit()
 def add_student():
     name = input("Enter student name: ")
     age = int(input("Enter student age: "))
-    grade = input("Enter student grade: ")
-    c.execute("INSERT INTO students(name, age,grade) VALUES (?,?,?)", (name, age,grade))
-    conn.commit()
-    print("Student added successfully!\n")
-# c.execute("ALTER TABLE STUDENTS ADD COLUMN batch TEXT ;")
+    c.execute("INSERT INTO students(name, age) VALUES (?,?)", (name, age))
 
-add_student()
+    print("Student added successfully!\n")
+    conn.commit()
+
+# add_student()
 
 def add_grade():
     student_id = int(input("Enter Student ID: "))
@@ -50,7 +49,7 @@ def view_students():
         print(student)
     print("\n")
 
-# view_students()
+view_students()
 
 def view_grades():
     c.execute("SELECT * FROM grades")
@@ -79,7 +78,7 @@ def aded_student():
 
 
 
-add_student()
+# add_student()
 
 while True:
     print("Student Grading")
